@@ -61,7 +61,7 @@ model Member {
   serverId String
   server Server @relation(fields: [serverId],references: [id],onDelete: Cascade)
 
-  messages Meesage[]
+  messages Message[]
   directMessages DirectMessage[]
 
   conversationsInitiated Conversation[] @relation("MemberOne")
@@ -91,7 +91,7 @@ model Channel {
   serverId String
   server Server @relation(fields: [serverId],references: [id],onDelete: Cascade)
 
-  messages Meesage[]
+  messages Message[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -100,7 +100,7 @@ model Channel {
   @@index([serverId])
 }
 
-model Meesage {
+model Message {
   id String @id @default(uuid())
   content String @db.Text
 
